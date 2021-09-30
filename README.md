@@ -33,7 +33,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 <img src='BackEndWalkthrough.mkv' title='Back End Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [OBS](https://obsproject.com/).
+Video created with [OBS](https://obsproject.com/).
 
 ## Notes
 
