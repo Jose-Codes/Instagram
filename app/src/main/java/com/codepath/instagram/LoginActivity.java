@@ -16,10 +16,12 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     public static final String TAG = "LoginActivity";
     private EditText edtUsername;
     private EditText edtPassword;
     private Button btnLogin;
+    private Button btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,16 @@ public class LoginActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.edtUserName);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnSignUp = findViewById(R.id.buttonSignUp);
 
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LoginActivity.this, "Transferring to sign up", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(i);
+            }
+        });
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
