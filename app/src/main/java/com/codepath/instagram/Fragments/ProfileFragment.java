@@ -18,7 +18,7 @@ public class ProfileFragment extends PostsFragment {
         query.include(Post.KEY_USER);
         query.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
         query.setLimit(20);
-        query.addDescendingOrder(Post.KEY_CREATED_KEY);
+        query.addDescendingOrder(Post.KEY_CREATED_KEY); // Posts in descending order
         query.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> posts, ParseException e) {
@@ -29,8 +29,10 @@ public class ProfileFragment extends PostsFragment {
                 for(Post post : posts){
                     Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                 }
-                allPosts.addAll(posts);
-                adapter.notifyDataSetChanged();
+                adapter.clear();
+                adapter.addAll(posts);
+                // Now we call setRefreshing(false) to signal refresh has finished
+                swipeContainer.setRefreshing(false);
             }
         });
     }
