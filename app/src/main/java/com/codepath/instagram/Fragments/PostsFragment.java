@@ -45,7 +45,7 @@ public class PostsFragment extends Fragment {
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
 
-    private SwipeRefreshLayout swipeContainer;
+    protected SwipeRefreshLayout swipeContainer;
 
     public PostsFragment() {
         // Required empty public constructor
